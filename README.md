@@ -4,7 +4,7 @@ platforms: dotnet
 author: Juliako
 ---
 
-# Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK
+# Get Stared with Encoding a Live Stream with Azure Media Services using .NET SDK
 
 The sample shows how to create a channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
 
