@@ -1,4 +1,11 @@
-# media-services-dotnet-encode-live-stream-with-ams-clear
+---
+services: media-services
+platforms: dotnet
+author: Juliako
+---
+
+# Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK
+
 The sample shows how to create a channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
 
 ## Running this sample
