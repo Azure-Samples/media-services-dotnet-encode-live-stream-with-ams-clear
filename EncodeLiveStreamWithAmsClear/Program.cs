@@ -16,24 +16,20 @@ namespace EncodeLiveStreamWithAmsClear
         private const string ProgramlName = "program001";
 
         // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        static string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        static string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
-
 
         static void Main(string[] args)
         {
-            // Create and cache the Media Services credentials in a static class variable.
-            _cachedCredentials = new MediaServicesCredentials(
-                            _mediaServicesAccountName,
-                            _mediaServicesAccountKey);
-            // Used the cached credentials to create CloudMediaContext.
-            _context = new CloudMediaContext(_cachedCredentials);
+            AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
             IChannel channel = CreateAndStartChannel();
 
@@ -41,8 +37,7 @@ namespace EncodeLiveStreamWithAmsClear
             string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
 
             Console.WriteLine("Intest URL: {0}", ingestUrl);
-
-
+            
             // Use the previewEndpoint to preview and verify 
             // that the input from the encoder is actually reaching the Channel. 
             string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
@@ -74,7 +69,6 @@ namespace EncodeLiveStreamWithAmsClear
 
             // Once you are done streaming, clean up your resources.
             Cleanup(channel);
-
         }
 
         public static IChannel CreateAndStartChannel()
@@ -82,7 +76,6 @@ namespace EncodeLiveStreamWithAmsClear
             var channelInput = CreateChannelInput();
             var channePreview = CreateChannelPreview();
             var channelEncoding = CreateChannelEncoding();
-
 
             ChannelCreationOptions options = new ChannelCreationOptions
             {
