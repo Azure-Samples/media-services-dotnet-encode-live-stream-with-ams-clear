@@ -13,18 +13,17 @@ The sample shows how to create a channel that receives a single-bitrate live str
 1. Use Nuget to install the latest Azure Media Services .NET SDK.
 	
 	[Install-Package windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices).
-2. Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.
-		
+2. Update the appSettings section of the app.config file with appropriate values. For more information, see [this](https://docs.microsoft.com/azure/media-services/media-services-use-aad-auth-to-access-ams-api) topic.
+
 		<?xml version="1.0"?>
 		<configuration>
 		  <appSettings>
-		      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-		      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
+			    <add key="AMSAADTenantDomain" value="AADTenantDomain" />
+			    <add key="AMSRESTAPIEndpoint" value="RESTAPIEndpoint" />
 		  </appSettings>
 		</configuration>
 
 3. Review the [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](http://azure.microsoft.com/documentation/articles/media-services-manage-live-encoder-enabled-channels/) topic.
-
 
 ## About the code
 
