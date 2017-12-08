@@ -16,18 +16,27 @@ namespace EncodeLiveStreamWithAmsClear
         private const string ProgramlName = "program001";
 
         // Read values from the App.config file.
+
         static string _AADTenantDomain =
             ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         static string _RESTAPIEndpoint =
             ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        static string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        static string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-            AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
