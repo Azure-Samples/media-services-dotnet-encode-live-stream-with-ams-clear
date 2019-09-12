@@ -1,7 +1,11 @@
 ---
-services: media-services
-platforms: dotnet
-author: Juliako
+page_type: sample
+languages:
+- csharp
+products:
+- azure
+description: "The sample shows how to create a channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream."
+urlFragment: media-services-dotnet-encode-live-stream-with-ams-clear
 ---
 
 # Encode and Deliver a Live Stream with Azure Media Services using .NET SDK
