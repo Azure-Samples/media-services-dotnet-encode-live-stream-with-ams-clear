@@ -8,7 +8,7 @@ description: "The sample shows how to create a channel that receives a single-bi
 urlFragment: media-services-dotnet-encode-live-stream-with-ams-clear
 ---
 
-# Encode and Deliver a Live Stream with Azure Media Services using .NET SDK
+# Encode and Deliver a Live Stream with Azure Media Services v2 using .NET SDK
 
 The sample shows how to create a channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
 
