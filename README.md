@@ -10,37 +10,18 @@ urlFragment: media-services-dotnet-encode-live-stream-with-ams-clear
 
 # Encode and Deliver a Live Stream with Azure Media Services v2 using .NET SDK
 
-## NOTE
- 
-You can find the latest and most extensive Media Services v3 .NET samples in the [Azure Media Services v3](https://github.com/Azure-Samples/media-services-v3-dotnet) repository.
+## IMPORTANT! Update your Azure Media Services REST API and SDKs to v3 by 29 February 2024
 
-## Overview
+Because version 3 of Azure Media Services REST API and client SDKs for .NET and Java offers more capabilities than version 2, we’re retiring version 2 of the Azure Media Services REST API and client SDKs for .NET and Java. We encourage you to make the switch sooner to gain the richer benefits of version 3 of Azure Media Services REST API and client SDKs for .NET and Java. Version 3 provides: 
 
-The sample in this repo shows how to create a channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
+### Action Required:
+To minimize disruption to your workloads, review the migration guide to transition your code from the version 2 to version 3 API and SDK before 29 February 2024. 
 
-## Running this sample
+After 29 February 2024, Azure Media Services will no longer accept traffic on the version 2 REST API, the ARM account management API version 2015-10-01, or from the version 2 .NET client SDKs. This includes any 3rd party open-source client SDKS that may call the version 2 API.  
 
-1. Use Nuget to install the latest Azure Media Services .NET SDK.
-	
-	[Install-Package windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices).
-2. Update the appSettings section of the app.config file with appropriate values. For more information, see [this](https://docs.microsoft.com/azure/media-services/media-services-use-aad-auth-to-access-ams-api) topic.
+See [Update your Azure Media Services REST API and SDKs to v3 by 29 February 2024](https://azure.microsoft.com/en-us/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024)
 
-	<appSettings>
-		<add key="AMSAADTenantDomain" value="tenant"/>
-		<add key="AMSRESTAPIEndpoint" value="endpoint"/>
-		<add key="AMSClientId" value="id"/>
-		<add key="AMSClientSecret" value="secret"/>
-	</appSettings>
+# (Deprecated) Windows Azure Media Services SDK .NET 4.5 (REST v2)
+## This library will be retired after 29 February 2024. Please migrate to the v3 API
 
-3. Review the [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](http://azure.microsoft.com/documentation/articles/media-services-manage-live-encoder-enabled-channels/) topic.
-
-## About the code
-
-For more information, see [Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/media-services-dotnet-creating-live-encoder-enabled-channel/).
-
-## More information
-
-You can view AMS learning paths here:
-
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+Windows Azure Media Services allows you to build a media distribution solution that can stream audio and video to Windows, iOS, Android, and other devices and platforms.To learn more, visit our [Developer Center](http://www.windowsazure.com/en-us/develop/media-services/).
