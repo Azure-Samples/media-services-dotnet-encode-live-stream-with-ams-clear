@@ -1,0 +1,1 @@
+C:\GitHub\media-services-dotnet-encode-live-stream-with-ams-clear\EncodeLiveStreamWithAmsClear\EncodeLiveStreamWithAmsClear\bin\Debug\EncodeLiveStreamWithAmsClear.exe.config
